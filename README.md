@@ -16,6 +16,10 @@
 
 ## Paired Sentenece Classification
 
+- **Task**
+
+   Question Matching
+
 - **Dataset**
 
     `data/afqmc_train.json` from [CLUEbenchmark/CLUE](https://github.com/CLUEbenchmark/CLUE)
