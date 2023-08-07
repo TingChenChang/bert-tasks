@@ -178,7 +178,7 @@ for epoch in range(1, EPOCHS + 1):
             loss, f1 = evaluate(model, valid_loader, device)
             val_loss_saver.save(epoch, n_iter, loss)
             print(f'epoch {epoch}, valid {n_iter}: loss={loss:.4f}')
-            print(f1)
+            print({label: f"{fscore:.4f}"for label, fscore in f1.items()})
 
         if n_iter % save_per_iter == 0:
             path = os.path.join(SAVE_CKPT_DIR, MODEL_PREFIX + f'{n_iter}/')
