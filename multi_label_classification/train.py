@@ -146,7 +146,7 @@ def evaluate(model, valid_loader, device):
                 all_labels[l] += labels[:, i].tolist()
 
     f1 = {
-        l: metrics.f1_score(all_labels[l], all_preds[l])
+        label: metrics.f1_score(all_labels[label], all_preds[label])
         for label in LABELS
     }
 
@@ -176,8 +176,9 @@ for epoch in range(1, EPOCHS + 1):
 
         if n_iter % valid_per_iter == 0:
             loss, f1 = evaluate(model, valid_loader, device)
-            val_loss_saver.save(epoch, n_iter, loss, f1)
-            print(f'epoch {epoch}, valid {n_iter}: loss={loss:.4f}, f1={f1:.2f}')
+            val_loss_saver.save(epoch, n_iter, loss)
+            print(f'epoch {epoch}, valid {n_iter}: loss={loss:.4f}')
+            print(f1)
 
         if n_iter % save_per_iter == 0:
             path = os.path.join(SAVE_CKPT_DIR, MODEL_PREFIX + f'{n_iter}/')
