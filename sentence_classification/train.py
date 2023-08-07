@@ -20,6 +20,8 @@ NUM_LABELS = 2
 LEARNING_RATE = 1e-5
 EPOCHS = 2
 SAVE_CKPT_DIR = f'models/{pd.Timestamp.now():%Y%m%d%H%M}/'
+if not os.path.isdir(SAVE_CKPT_DIR):
+    os.makedirs(SAVE_CKPT_DIR)
 MODEL_PREFIX = 'sentence_cls_'
 
 torch.manual_seed(SEED)

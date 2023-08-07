@@ -24,6 +24,8 @@ LABELS = ['toxic', 'severe_toxic', 'obscene', 'threat', 'insult', 'identity_hate
 LEARNING_RATE = 1e-5
 EPOCHS = 10
 SAVE_CKPT_DIR = f'models/{pd.Timestamp.now():%Y%m%d%H%M}/'
+if not os.path.isdir(SAVE_CKPT_DIR):
+    os.makedirs(SAVE_CKPT_DIR)
 MODEL_PREFIX = 'toxic_labels_'
 
 torch.manual_seed(SEED)

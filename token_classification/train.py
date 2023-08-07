@@ -22,6 +22,8 @@ LABELS = ['O', 'B-PER', 'I-PER', 'B-ORG', 'I-ORG', 'B-LOC', 'I-LOC']
 LEARNING_RATE = 1e-5
 EPOCHS = 2
 SAVE_CKPT_DIR = f'models/{pd.Timestamp.now():%Y%m%d%H%M}/'
+if not os.path.isdir(SAVE_CKPT_DIR):
+    os.makedirs(SAVE_CKPT_DIR)
 MODEL_PREFIX = 'ner_'
 
 torch.manual_seed(SEED)

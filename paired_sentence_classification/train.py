@@ -23,7 +23,9 @@ NUM_LABELS = 2
 LEARNING_RATE = 1e-5
 EPOCHS = 10
 SAVE_CKPT_DIR = f'models/{pd.Timestamp.now():%Y%m%d%H%M}/'
-Model_PREFIX = 'paired_sentence_cls_'
+if not os.path.isdir(SAVE_CKPT_DIR):
+    os.makedirs(SAVE_CKPT_DIR)
+MODEL_PREFIX = 'paired_sentence_cls_'
 
 torch.manual_seed(SEED)
 torch.cuda.manual_seed_all(SEED)
@@ -149,7 +151,7 @@ for epoch in range(1, EPOCHS + 1):
             print(f'epoch {epoch}, valid {n_iter}: loss={loss:.4f}, acc={acc:.2f}')
 
         if n_iter % save_per_iter == 0:
-            path = os.path.join(SAVE_CKPT_DIR, Model_PREFIX + f'{n_iter}/')
+            path = os.path.join(SAVE_CKPT_DIR, MODEL_PREFIX + f'{n_iter}/')
             print(f'save model at {path}')
             model.save_pretrained(path)
             tokenizer.save_pretrained(path)
