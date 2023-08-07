@@ -71,7 +71,6 @@ SKIP_TOKEN_IDS = [tokenizer.cls_token_id, tokenizer.sep_token_id, tokenizer.pad_
 
 dataset = QADataset(tokenizer, queries, contents, indexes_in_content)
 
-TRAINING_SET_RATIO = 0.9
 train_size = int(TRAINING_SET_RATIO * len(dataset))
 valid_size = len(dataset) - train_size
 train_dataset, valid_dataset = random_split(dataset, [train_size, valid_size])
