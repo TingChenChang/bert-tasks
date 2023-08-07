@@ -57,7 +57,7 @@
 
 - **Task**
 
-    QA
+    Sentence Multi Labels Classification
 
 - **Dataset**
 
