@@ -21,8 +21,9 @@ BATCH_SIZE = 32
 NUM_LABELS = 2
 
 LEARNING_RATE = 1e-5
-EPOCHS = 10
-SAVE_CKPT_DIR = f'models/{pd.Timestamp.now():%Y%m%d%H%M}/'
+EPOCHS = 2
+COLAB_DIR = '/content/drive/MyDrive/Colab Notebooks/BERT/paired_cls/'
+SAVE_CKPT_DIR = COLAB_DIR + f'models/{pd.Timestamp.now():%Y%m%d%H%M}/'
 if not os.path.isdir(SAVE_CKPT_DIR):
     os.makedirs(SAVE_CKPT_DIR)
 MODEL_PREFIX = 'paired_sentence_cls_'

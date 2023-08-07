@@ -17,13 +17,14 @@ from datasets import MultiLabelDataset
 PRETRAINED_MODEL_NAME = 'bert-base-chinese'
 SEED = 1234
 
-TRAINING_SET_RATIO = 0.8
+TRAINING_SET_RATIO = 0.9
 BATCH_SIZE = 32
 LABELS = ['toxic', 'severe_toxic', 'obscene', 'threat', 'insult', 'identity_hate']
 
 LEARNING_RATE = 1e-5
-EPOCHS = 10
-SAVE_CKPT_DIR = f'models/{pd.Timestamp.now():%Y%m%d%H%M}/'
+EPOCHS = 2
+COLAB_DIR = '/content/drive/MyDrive/Colab Notebooks/BERT/multi_label_cls/'
+SAVE_CKPT_DIR = COLAB_DIR + f'models/{pd.Timestamp.now():%Y%m%d%H%M}/'
 if not os.path.isdir(SAVE_CKPT_DIR):
     os.makedirs(SAVE_CKPT_DIR)
 MODEL_PREFIX = 'toxic_labels_'

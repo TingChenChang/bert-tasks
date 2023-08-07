@@ -19,7 +19,8 @@ NUM_LABELS = 2
 
 LEARNING_RATE = 1e-5
 EPOCHS = 2
-SAVE_CKPT_DIR = f'models/{pd.Timestamp.now():%Y%m%d%H%M}/'
+COLAB_DIR = '/content/drive/MyDrive/Colab Notebooks/BERT/sentiment_cls/'
+SAVE_CKPT_DIR = COLAB_DIR + f'models/{pd.Timestamp.now():%Y%m%d%H%M}/'
 if not os.path.isdir(SAVE_CKPT_DIR):
     os.makedirs(SAVE_CKPT_DIR)
 MODEL_PREFIX = 'sentence_cls_'
@@ -32,8 +33,8 @@ print(f'Device: {device}')
 
 # %%
 # Data
-# df = pd.read_csv('data/chinese_sentiment_classification.csv')
-df = pd.read_csv('data/sample.csv')
+df = pd.read_csv('data/chinese_sentiment_classification.csv')
+# df = pd.read_csv('data/sample.csv')
 df = df.sample(frac=1).reset_index(drop=True)  # shuffle
 print(df.head())
 
